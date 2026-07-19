@@ -15,8 +15,9 @@ test("전시 화면과 입력 컨트롤이 빌드 소스에 포함된다", async
   assert.match(page, /ArrowLeft/);
   assert.match(page, /ArrowRight/);
   assert.match(page, /onEnded=\{\(\) => playVideo/);
-  assert.match(css, /aspect-ratio:\s*854\/480/);
-  assert.match(css, /grid-template-areas:\s*"radio video"/);
+  assert.match(css, /aspect-ratio:\s*854\s*\/\s*480/);
+  assert.match(css, /aspect-ratio:\s*1024\s*\/\s*600/);
+  assert.match(page, /className="fullscreen-control"/);
 
   const stations = JSON.parse(radio);
   assert.equal(stations.length, 5);

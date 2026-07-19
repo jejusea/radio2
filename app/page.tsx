@@ -94,31 +94,42 @@ export default function Home() {
 
   return (
     <main className={`receiver ${started ? "is-live" : "is-standby"}`} onContextMenu={(e) => e.preventDefault()}>
-      <section className="chassis">
-        <div className={`screen ${transitioning ? "whiteout" : ""}`}>
-          <video ref={videoRef} key={video?.file} src={video?.file} muted={false} playsInline preload="metadata" onEnded={() => playVideo(videoIndex + 1)} onError={() => diagnostics.current.skip(video?.file ?? "missing video")} />
-          <div className={`fallback scene-${videoIndex % 5}`}><span>{String(videoIndex + 1).padStart(2, "0")}</span></div>
-        </div>
+      <section className="chassis" aria-label="전시 수신기">
+        <div className="brand" aria-hidden="true">C—03</div>
+        <div className="speaker" aria-hidden="true"><i/><i/><i/><i/><i/><i/></div>
 
         <aside className="radio-panel" aria-live="polite">
           {tuning ? <div className="tuning"><b>TUNING</b><span>··· ·−· ··</span></div> : <>
-            <p>NOW RECEIVING</p>
+            <p><i className="live-dot"/> NOW RECEIVING</p>
             <h1>{radio.city}, {radio.country}</h1>
             <strong>{radio.station}</strong>
             <div className="frequency">{radio.frequency ?? radio.type} FM</div>
           </>}
         </aside>
-        <div className="video-info">{video?.label ?? video?.title ?? "VIDEO INFO"}</div>
-        <div className="light-lines" aria-hidden="true"><i/><i/><i/><i/><i/></div>
+
+        <div className={`screen ${transitioning ? "whiteout" : ""}`}>
+          <video ref={videoRef} key={video?.file} src={video?.file} muted={false} playsInline preload="metadata" onEnded={() => playVideo(videoIndex + 1)} onError={() => diagnostics.current.skip(video?.file ?? "missing video")} />
+          <div className="fallback"><span>480</span></div>
+        </div>
+
+        <div className="video-info"><span>{video?.label ?? video?.title ?? "NO SIGNAL"}</span><small>{String(videoIndex + 1).padStart(2, "0")} / {String(videos.length).padStart(2, "0")}</small></div>
+
+        {started && CONFIG.showControls && <nav className="controls" aria-label="전시 조작">
+          <div className="radio-controls">
+            <button onClick={() => playRadio(radioIndex - 1)} aria-label="이전 라디오"><span>‹</span></button>
+            <div className="dial"><button onClick={() => playRadio(radioIndex + 1)} aria-label="다음 라디오"><span/></button></div>
+          </div>
+          <div className="video-controls">
+            <button onClick={() => playVideo(videoIndex - 1)} aria-label="이전 영상">‹</button>
+            <button onClick={() => playVideo(videoIndex + 1)} aria-label="다음 영상">›</button>
+          </div>
+        </nav>}
+
+        <button className="fullscreen-control" onClick={() => document.documentElement.requestFullscreen?.()} aria-label="전체 화면"><i/><i/><i/><i/></button>
       </section>
 
-      {started && CONFIG.showControls && <nav className="controls" aria-label="전시 조작">
-        <div className="radio-controls"><button onClick={() => playRadio(radioIndex - 1)} aria-label="이전 라디오">LIGHT</button><button onClick={() => playRadio(radioIndex + 1)} aria-label="다음 라디오">DIAL</button></div>
-        <button className="video-control" onClick={() => playVideo(videoIndex + 1)} aria-label="다음 영상">TOGGLE</button>
-      </nav>}
-
       <audio ref={audioRef} key={radio.file} src={radio.file} preload="metadata" onEnded={() => playRadio(radioIndex + 1)} onError={() => diagnostics.current.skip(radio.file || "missing radio")} />
-      {!started && <button className="start" onClick={start}>START</button>}
+      {!started && <button className="start" onClick={start}><i/><span>CLICK TO START</span></button>}
       {debug && <pre className="diagnostics">{JSON.stringify({ video: `${videoIndex + 1}/${videos.length}`, videoFile: video?.file, radio: `${radioIndex + 1}/${radios.length}`, radioFile: radio.file, fullscreen, wakeLock, transitioning, tuning }, null, 2)}</pre>}
     </main>
   );
