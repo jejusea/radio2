@@ -1,0 +1,7 @@
+[
+  { "id": "r01", "file": "/media/radio/radio_001.mp3", "country": "MX", "city": "MEXICO CITY", "station": "RADIO UNAM", "frequency": "96.1" },
+  { "id": "r02", "file": "/media/radio/radio_002.mp3", "country": "JAPAN", "city": "TOKYO", "station": "TOKYO FM", "frequency": "80.0" },
+  { "id": "r03", "file": "/media/radio/radio_003.mp3", "country": "GERMANY", "city": "BERLIN", "station": "BERLIN KULTUR", "frequency": "89.6" },
+  { "id": "r04", "file": "/media/radio/radio_004.mp3", "country": "MEXICO", "city": "OAXACA", "station": "RADIO OAXACA", "frequency": "96.9" },
+  { "id": "r05", "file": "/media/radio/radio_005.mp3", "country": "FRANCE", "city": "PARIS", "station": "PARIS INTER", "frequency": "87.8" }
+]

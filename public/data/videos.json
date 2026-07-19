@@ -1,0 +1,12 @@
+[
+  { "id": "v01", "file": "/media/videos/video_001.mp4", "label": "HOUSE / 01" },
+  { "id": "v02", "file": "/media/videos/video_002.mp4", "label": "HOUSE / 02" },
+  { "id": "v03", "file": "/media/videos/video_003.mp4", "label": "HOUSE / 03" },
+  { "id": "v04", "file": "/media/videos/video_004.mp4", "label": "HOUSE / 04" },
+  { "id": "v05", "file": "/media/videos/video_005.mp4", "label": "HOUSE / 05" },
+  { "id": "v06", "file": "/media/videos/video_006.mp4", "label": "HOUSE / 06" },
+  { "id": "v07", "file": "/media/videos/video_007.mp4", "label": "HOUSE / 07" },
+  { "id": "v08", "file": "/media/videos/video_008.mp4", "label": "HOUSE / 08" },
+  { "id": "v09", "file": "/media/videos/video_009.mp4", "label": "HOUSE / 09" },
+  { "id": "v10", "file": "/media/videos/video_010.mp4", "label": "HOUSE / 10" }
+]

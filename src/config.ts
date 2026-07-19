@@ -1,0 +1,17 @@
+export const CONFIG = Object.freeze({
+  videoTransitionMs: 300,
+  videoVolume: 0.72,
+  radioVolume: 0.42,
+  radioFadeMs: 100,
+  tuningMs: 650,
+  minimumRadioRemaining: 20,
+  automaticRadioChange: false,
+  automaticRadioMinMs: 45_000,
+  automaticRadioMaxMs: 90_000,
+  showControls: true,
+  exhibitionMode: false,
+  debug: false,
+  cursorHideMs: 2500,
+  useWakeLock: true,
+  restoreLastVideo: false,
+});
