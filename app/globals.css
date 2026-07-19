@@ -6,7 +6,7 @@ html, body { margin: 0; width: 100%; height: 100%; overflow: hidden; background:
 button { color: inherit; font: inherit; cursor: pointer; }
 
 .receiver { width: 100vw; height: 100dvh; display: grid; place-items: center; overflow: hidden; background: #e9e9e5; user-select: none; }
-.chassis { position: relative; width: min(100vw, calc(100dvh * 1.7066667)); aspect-ratio: 1024 / 600; flex: none; overflow: hidden; background: linear-gradient(145deg, #fff 0%, var(--paper) 75%); border: 1px solid #d0d0cc; box-shadow: 0 18px 55px #20202018, inset 0 1px #fff; }
+.chassis { position: relative; width: min(100vw, calc(100dvh * 1.7066667)); aspect-ratio: 1024 / 600; container-type: inline-size; flex: none; overflow: hidden; background: linear-gradient(145deg, #fff 0%, var(--paper) 75%); border: 1px solid #d0d0cc; box-shadow: 0 18px 55px #20202018, inset 0 1px #fff; }
 .chassis::after { content: ""; position: absolute; inset: 2.1%; pointer-events: none; border: 1px solid #deded9; }
 .brand { position: absolute; z-index: 2; left: 5.9%; top: 5.6%; font-size: clamp(7px, 1.05vw, 12px); font-weight: 700; letter-spacing: .2em; color: #656560; }
 
@@ -16,23 +16,22 @@ button { color: inherit; font: inherit; cursor: pointer; }
 .speaker i:nth-child(2), .speaker i:nth-child(5) { width: 76%; }
 .speaker i:nth-child(3), .speaker i:nth-child(4) { width: 90%; }
 
-.screen { position: absolute; left: 48.7%; top: 6.5%; width: 43.2%; aspect-ratio: 640 / 480; overflow: hidden; background: #111; border: 1px solid #222; box-shadow: 0 3px 12px #0001, inset 0 0 0 5px #0d0d0d; }
+.screen { position: absolute; left: 37.1%; top: 2%; width: 62.5%; height: 80%; overflow: hidden; background: #111; border: 1px solid #222; box-shadow: 0 3px 12px #0001, inset 0 0 0 5px #0d0d0d; }
 .screen video { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; object-fit: contain; background: #000; image-rendering: auto; }
 .fallback { position: absolute; inset: 5px; display: grid; place-items: center; background: #151515; }
 .fallback::before { content: "NO SIGNAL"; color: #c7c7c1; font-size: clamp(9px, 1.15vw, 14px); letter-spacing: .18em; }
 .fallback span { position: absolute; right: 3%; bottom: 4%; color: #5c5c58; font: 9px/1 monospace; }
 .whiteout::after { content: ""; position: absolute; inset: 0; z-index: 8; background: #fff; }
 
-.radio-panel { position: absolute; left: 6.1%; top: 43.5%; width: 25.6%; aspect-ratio: 1.52; display: flex; flex-direction: column; justify-content: center; padding: 8%; text-align: left; background: #090b0a; border: 1px solid #222522; box-shadow: inset 0 0 0 4px #020302, 0 2px 7px #0002; color: var(--display); font-family: "Courier New", Consolas, monospace; text-shadow: 0 0 5px #baffbd24; }
-.radio-panel p, .radio-panel h1, .radio-panel strong, .frequency { margin: 0; font-weight: 400; }
-.radio-panel p { margin-bottom: 10%; color: var(--display-dim); font-size: clamp(6px, .85vw, 10px); letter-spacing: .13em; }
+.radio-panel { position: absolute; left: 6.1%; top: 43.5%; width: 25.6%; height: 28.1%; display: flex; flex-direction: column; justify-content: center; padding: 2.05%; text-align: left; background: #090b0a; border: 1px solid #222522; box-shadow: inset 0 0 0 4px #020302, 0 2px 7px #0002; color: var(--display); font: 12px/1.35 "Courier New", Consolas, monospace; font-size: 1.171875cqw; text-shadow: 0 0 5px #baffbd24; }
+.radio-panel p, .radio-panel h1, .radio-panel strong, .frequency { margin: 0; font: inherit; font-weight: 400; letter-spacing: .06em; }
+.radio-panel p { margin-bottom: 7%; color: var(--display-dim); }
 .live-dot { display: inline-block; width: .65em; aspect-ratio: 1; margin-right: .5em; border-radius: 50%; background: var(--signal); box-shadow: 0 0 0 2px #f03b2f18; }
-.radio-panel h1 { font-size: clamp(9px, 1.35vw, 16px); line-height: 1.3; white-space: nowrap; letter-spacing: .04em; }
-.radio-panel strong { margin-top: 2%; font-size: clamp(9px, 1.35vw, 16px); letter-spacing: .04em; }
-.frequency { margin-top: 2%; font-size: clamp(9px, 1.35vw, 16px); line-height: 1.3; letter-spacing: .04em; }
-.tuning { display: grid; gap: 10%; color: var(--display); font-size: clamp(8px, 1.2vw, 14px); letter-spacing: .14em; }
+.radio-panel h1 { white-space: nowrap; }
+.radio-panel strong, .frequency { margin-top: 2%; }
+.tuning { display: grid; gap: 10%; color: var(--display); font: inherit; letter-spacing: .14em; }
 
-.video-info { position: absolute; left: 48.7%; top: 65.1%; width: 43.2%; height: 6.2%; display: flex; align-items: center; justify-content: space-between; padding: 0 2%; border: 1px solid #222522; background: #090b0a; color: var(--display); font: clamp(7px, .95vw, 11px)/1 "Courier New", Consolas, monospace; letter-spacing: .12em; text-shadow: 0 0 5px #baffbd24; box-shadow: inset 0 0 0 3px #020302; }
+.video-info { position: absolute; left: 37.1%; top: 84%; width: 62.5%; height: 6.4%; display: flex; align-items: center; justify-content: space-between; padding: 0 1.6%; border: 1px solid #222522; background: #090b0a; color: var(--display); font: 12px/1 "Courier New", Consolas, monospace; font-size: 1.171875cqw; letter-spacing: .06em; text-shadow: 0 0 5px #baffbd24; box-shadow: inset 0 0 0 3px #020302; }
 .video-info small { color: var(--display-dim); font: inherit; }
 
 .controls { position: absolute; inset: 0; pointer-events: none; }
@@ -44,7 +43,7 @@ button { color: inherit; font: inherit; cursor: pointer; }
 .dial { width: 37%; aspect-ratio: 1; padding: 5%; border: 1px solid #c3c3be; border-radius: 50%; background: #efefeb; box-shadow: inset 0 2px 5px #0001; }
 .dial button { width: 100%; height: 100%; border-radius: 50%; position: relative; }
 .dial button span { position: absolute; left: 50%; top: 10%; width: 1px; height: 20%; background: #777; }
-.video-controls { position: absolute; right: 6.8%; top: 80.8%; width: 10.3%; height: 9.7%; display: grid; grid-template-columns: 1fr 1fr; border: 1px solid #aaa9a3; border-radius: 3px; overflow: hidden; box-shadow: 0 2px 3px #0001; }
+.video-controls { position: absolute; right: 6.8%; top: 92%; width: 10.3%; height: 5.2%; display: grid; grid-template-columns: 1fr 1fr; border: 1px solid #aaa9a3; border-radius: 3px; overflow: hidden; box-shadow: 0 2px 3px #0001; }
 .video-controls button { border: 0; border-radius: 0; box-shadow: none; color: #777; font-size: clamp(12px, 1.8vw, 22px); }
 .video-controls button + button { border-left: 1px solid #c5c5c0; }
 

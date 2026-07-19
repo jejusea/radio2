@@ -15,7 +15,9 @@ test("전시 화면과 입력 컨트롤이 빌드 소스에 포함된다", async
   assert.match(page, /ArrowLeft/);
   assert.match(page, /ArrowRight/);
   assert.match(page, /onEnded=\{\(\) => playVideo/);
-  assert.match(css, /aspect-ratio:\s*640\s*\/\s*480/);
+  assert.match(css, /width:\s*62\.5%/);
+  assert.match(css, /height:\s*80%/);
+  assert.match(css, /font-size:\s*1\.171875cqw/);
   assert.match(css, /aspect-ratio:\s*1024\s*\/\s*600/);
   assert.match(page, /className="fullscreen-control"/);
 
