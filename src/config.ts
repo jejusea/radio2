@@ -2,6 +2,7 @@ export const CONFIG = Object.freeze({
   videoTransitionMs: 300,
   videoVolume: 0.72,
   radioVolume: 0.42,
+  effectVolume: 0.58,
   radioFadeMs: 100,
   tuningMs: 650,
   minimumRadioRemaining: 20,

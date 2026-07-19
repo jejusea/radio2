@@ -13,6 +13,7 @@ function wait(ms: number) { return new Promise((resolve) => window.setTimeout(re
 export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
+  const effectRef = useRef<HTMLAudioElement>(null);
   const diagnostics = useRef(new Diagnostics());
   const [videos, setVideos] = useState<VideoItem[]>([]);
   const [radios, setRadios] = useState<RadioItem[]>([]);
@@ -50,6 +51,12 @@ export default function Home() {
     diagnostics.current.input("RADIO");
     const el = audioRef.current;
     if (el) { el.volume = 0; el.pause(); }
+    const effect = effectRef.current;
+    if (effect) {
+      effect.currentTime = 0;
+      effect.volume = CONFIG.effectVolume;
+      await effect.play().catch(() => diagnostics.current.error("tuning effect unavailable"));
+    }
     await wait(CONFIG.tuningMs);
     const next = wrap(index, radios.length);
     setRadioIndex(next);
@@ -129,6 +136,7 @@ export default function Home() {
       </section>
 
       <audio ref={audioRef} key={radio.file} src={radio.file} preload="metadata" onEnded={() => playRadio(radioIndex + 1)} onError={() => diagnostics.current.skip(radio.file || "missing radio")} />
+      <audio ref={effectRef} src="media/effects/SF.mp3" preload="auto" />
       {!started && <button className="start" onClick={start}><i/><span>CLICK TO START</span></button>}
       {debug && <pre className="diagnostics">{JSON.stringify({ video: `${videoIndex + 1}/${videos.length}`, videoFile: video?.file, radio: `${radioIndex + 1}/${radios.length}`, radioFile: radio.file, fullscreen, wakeLock, transitioning, tuning }, null, 2)}</pre>}
     </main>
