@@ -16,7 +16,7 @@ button { color: inherit; font: inherit; cursor: pointer; }
 .speaker i:nth-child(2), .speaker i:nth-child(5) { width: 76%; }
 .speaker i:nth-child(3), .speaker i:nth-child(4) { width: 90%; }
 
-.screen { position: absolute; left: 42.7%; top: 8.2%; width: 50.8%; aspect-ratio: 854 / 480; overflow: hidden; background: #111; border: 1px solid #222; box-shadow: 0 3px 12px #0001, inset 0 0 0 5px #0d0d0d; }
+.screen { position: absolute; left: 48.7%; top: 6.5%; width: 43.2%; aspect-ratio: 640 / 480; overflow: hidden; background: #111; border: 1px solid #222; box-shadow: 0 3px 12px #0001, inset 0 0 0 5px #0d0d0d; }
 .screen video { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; object-fit: contain; background: #000; image-rendering: auto; }
 .fallback { position: absolute; inset: 5px; display: grid; place-items: center; background: #151515; }
 .fallback::before { content: "NO SIGNAL"; color: #c7c7c1; font-size: clamp(9px, 1.15vw, 14px); letter-spacing: .18em; }
@@ -32,7 +32,7 @@ button { color: inherit; font: inherit; cursor: pointer; }
 .frequency { margin-top: 2%; font-size: clamp(9px, 1.35vw, 16px); line-height: 1.3; letter-spacing: .04em; }
 .tuning { display: grid; gap: 10%; color: var(--display); font-size: clamp(8px, 1.2vw, 14px); letter-spacing: .14em; }
 
-.video-info { position: absolute; left: 42.7%; top: 68.7%; width: 50.8%; height: 6.2%; display: flex; align-items: center; justify-content: space-between; padding: 0 2%; border: 1px solid #222522; background: #090b0a; color: var(--display); font: clamp(7px, .95vw, 11px)/1 "Courier New", Consolas, monospace; letter-spacing: .12em; text-shadow: 0 0 5px #baffbd24; box-shadow: inset 0 0 0 3px #020302; }
+.video-info { position: absolute; left: 48.7%; top: 65.1%; width: 43.2%; height: 6.2%; display: flex; align-items: center; justify-content: space-between; padding: 0 2%; border: 1px solid #222522; background: #090b0a; color: var(--display); font: clamp(7px, .95vw, 11px)/1 "Courier New", Consolas, monospace; letter-spacing: .12em; text-shadow: 0 0 5px #baffbd24; box-shadow: inset 0 0 0 3px #020302; }
 .video-info small { color: var(--display-dim); font: inherit; }
 
 .controls { position: absolute; inset: 0; pointer-events: none; }
