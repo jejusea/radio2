@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "vinext dev",
     "build": "vinext build",
+    "build:pages": "next build",
     "start": "vinext start",
     "test": "pnpm run validate:media && pnpm run build && node --test tests/rendered-html.test.mjs",
     "validate:media": "node scripts/validate-media.mjs",
